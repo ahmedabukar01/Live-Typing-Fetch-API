@@ -34,6 +34,10 @@ form input{
     background:rgb(223, 219, 219);
     display:none;
 }
+.error{
+    background:red;
+}
+/* buttons */
 .live-button{
     background:blueviolet;
 }

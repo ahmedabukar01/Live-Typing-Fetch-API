@@ -36,6 +36,7 @@ function textOutput(){
     .catch(err=>console.log(err));
 
     displayDom();
+    removeDom();
 }
 // json data
 function  getJsonData(){
@@ -47,10 +48,18 @@ function  getJsonData(){
                     .then(data=>{
                         
                     })
+                    .catch(err=>{
+                        output.innerHTML = err;
+                        output.classList += " error";
+                        displayDom();
+                    });
 }
 // display and disappear
 function displayDom(){
     input.style.display="none";
     output.style.display="block";
+}
+function removeDom(){
+    output.classList.remove('error');
 }
  
