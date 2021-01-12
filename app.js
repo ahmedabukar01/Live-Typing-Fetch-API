@@ -8,8 +8,9 @@ const input = document.querySelector('form input');
 const form = document.querySelector('form');
 
 // adding eventlisteners
-liveButton.addEventListener('click', liveOutput);
-textButton.addEventListener('click', displayLiveBtn);
+liveButton.addEventListener('click', displayLiveBtn);
+textButton.addEventListener('click', textOutput);
+jsonData.addEventListener('click', getJsonData);
 form.addEventListener('submit',e=>e.preventDefault());
 input.addEventListener('keyup', e=>{
     let text = input.value;
@@ -35,6 +36,17 @@ function textOutput(){
     .catch(err=>console.log(err));
 
     displayDom();
+}
+// json data
+function  getJsonData(){
+    const response = fetch('https://jsonplaceholder.typicode.com/todos')
+                    .then(response=>{
+                        console.log(response);
+                        return response.json();
+                    })
+                    .then(data=>{
+                        
+                    })
 }
 // display and disappear
 function displayDom(){

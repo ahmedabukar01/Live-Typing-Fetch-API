@@ -17,9 +17,6 @@ button{
     cursor:pointer;
     color:#fff;
 }
-.live-button{
-    background:blueviolet;
-}
 .output{
     border-radius: 3px;
     background:rgb(245, 231, 231);
@@ -36,4 +33,20 @@ form input{
     border:none;
     background:rgb(223, 219, 219);
     display:none;
+}
+.live-button{
+    background:blueviolet;
+}
+.get-text{
+    background:#1a75ff;
+}
+.json-data{
+    background:#00cc00;
+}
+.api-data{
+    background:#ff66ff;
+}
+.post{
+    background:gold;
+    padding:8px 11px;
 }
