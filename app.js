@@ -6,6 +6,7 @@ liveButton.addEventListener('click', liveOutput);
 input.addEventListener('keyup', e=>{
     let text = input.value;
     liveTyping(text);
+    
 });
 
 function liveOutput(){
