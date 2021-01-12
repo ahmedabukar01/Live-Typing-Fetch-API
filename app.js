@@ -5,22 +5,40 @@ const apiData = document.querySelector('.api-data');
 const apiPost = document.querySelector('.api-post');
 const output = document.querySelector('.output');
 const input = document.querySelector('form input');
+const form = document.querySelector('form');
 
+// adding eventlisteners
 liveButton.addEventListener('click', liveOutput);
+textButton.addEventListener('click', displayLiveBtn);
+form.addEventListener('submit',e=>e.preventDefault());
 input.addEventListener('keyup', e=>{
     let text = input.value;
     liveTyping(text);
     
 });
 
-// live typing
-function liveOutput(){
-    output.textContent ="here you see your typing";
+// display live typing 
+function displayLiveBtn(){
+    output.textContent ="live typing";
     output.style.display="block";
     input.style.display="inline";
 }
-
+// live typing
 function liveTyping(text){
     output.textContent = text;
 }
 // getting text
+function textOutput(){
+    getText().then(data=>{
+        output.innerHTML = data;
+    })
+    .catch(err=>console.log(err));
+
+    displayDom();
+}
+// display and disappear
+function displayDom(){
+    input.style.display="none";
+    output.style.display="block";
+}
+ 
