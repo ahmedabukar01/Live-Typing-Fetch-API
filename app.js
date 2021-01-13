@@ -39,21 +39,7 @@ function textOutput(){
     removeDom();
 }
 // json data
-function  getJsonData(){
-    const response = fetch('https://jsonplaceholder.typicode.com/todos')
-                    .then(response=>{
-                        console.log(response);
-                        return response.json();
-                    })
-                    .then(data=>{
-                        
-                    })
-                    .catch(err=>{
-                        output.innerHTML = err;
-                        output.classList += " error";
-                        displayDom();
-                    });
-}
+
 // display and disappear
 function displayDom(){
     input.style.display="none";
