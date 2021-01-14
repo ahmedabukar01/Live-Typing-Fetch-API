@@ -21,8 +21,10 @@ input.addEventListener('keyup', e=>{
 // display live typing 
 function displayLiveBtn(){
     output.textContent ="live typing";
+    output.style.background=`${bgColors.liveButton}`;
     output.style.display="block";
     input.style.display="inline";
+
 }
 // live typing
 function liveTyping(text){
@@ -30,18 +32,40 @@ function liveTyping(text){
 }
 // getting text
 function textOutput(){
+    displayDom();
+
+    output.style.backgroundColor = `${bgColors.textButton}`;
+
+    // calling text fun
+
     getText().then(data=>{
         output.innerHTML = data;
     })
-    .catch(err=>console.log(err));
+    .catch(err=>{
+        output.innerHTML = `${err}`;
+        output.classList.add('error');
+    });
 
-    displayDom();
-    removeDom();
+    
 }
 // json data
 function ourjson(){
+    output.innerHTML ='';
+    output.style.display="block";
+    removeError();
+    
+    // calling json function
+    
     getJsonData().then(data=>{
-        console.log(data);
+        data.forEach(d=>{
+            output.innerHTML += `
+           <ul>
+                <li>id: ${d.id}</li>
+                <li>Title: ${d.title}</li>
+                <li>Completed: ${d.completed}</li>
+           </ul>
+        `
+        })
     }).catch(err=>{
         output.innerHTML = `${err.message}`;
         output.style.display="block";
@@ -54,7 +78,17 @@ function displayDom(){
     input.style.display="none";
     output.style.display="block";
 }
-function removeDom(){
-    output.classList.remove('error');
+function removeError(){
+    if(output.classList.contains('error')){
+        output.classList.remove('error');
+    }
+    
+}
+
+// background colors
+const bgColors = {
+    liveButton: '#8a2be2',
+    textButton: '#1a75ff',
+    jsonData: '#00cc00'
 }
  
