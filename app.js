@@ -10,7 +10,7 @@ const form = document.querySelector('form');
 // adding eventlisteners
 liveButton.addEventListener('click', displayLiveBtn);
 textButton.addEventListener('click', textOutput);
-jsonData.addEventListener('click', getJsonData);
+jsonData.addEventListener('click', jsonDataDisplay);
 form.addEventListener('submit',e=>e.preventDefault());
 input.addEventListener('keyup', e=>{
     let text = input.value;
@@ -39,7 +39,11 @@ function textOutput(){
     removeDom();
 }
 // json data
-
+function jsonDataDisplay(){
+    getJsonData().then(response=>{
+        console.log(response);
+    })
+}
 // display and disappear
 function displayDom(){
     input.style.display="none";
