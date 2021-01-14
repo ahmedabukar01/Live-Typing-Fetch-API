@@ -1,11 +1,12 @@
 const liveButton = document.querySelector('.live-button');
 const textButton = document.querySelector('.get-text');
+const postForm = document.querySelector('.post-form');
 const jsonData = document.querySelector('.json-data');
 const apiData = document.querySelector('.api-data');
 const apiPost = document.querySelector('.api-post');
-const mypost = document.querySelector('.mypost')
+const myPost = document.querySelector('.mypost')
 const output = document.querySelector('.output');
-const input = document.querySelector('form input');
+const input = document.querySelector('.text');
 const form = document.querySelector('form');
 
 // adding eventlisteners
@@ -13,6 +14,7 @@ liveButton.addEventListener('click', displayLiveBtn);
 textButton.addEventListener('click', textOutput);
 jsonData.addEventListener('click', ourjson);
 apiData.addEventListener('click',gettingApiData);
+myPost.addEventListener('click',gettingPosts);
 form.addEventListener('submit',e=>e.preventDefault());
 input.addEventListener('keyup', e=>{
     let text = input.value;
@@ -94,9 +96,12 @@ function gettingApiData(){
         displayError(err);
     })
 }
+// posts
+function gettingPosts(){
+
+}
 // managing Dom
 function displayDom(){
-    input.style.display="none";
     output.style.display="block";
 }
 function removeError(){
@@ -105,10 +110,14 @@ function removeError(){
     }
     
 }
-function displayError(err){
+function displayError(err,color){
     output.innerHTML = `${err.message,"fadlan internet kada hubi"}`;
         output.classList.add('error');
         output.style.background="crimson";
+}
+function hideDom(){
+    input.style.display="none";
+    postForm.style.display="none";
 }
 
 const bgColors = {
