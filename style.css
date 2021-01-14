@@ -86,10 +86,23 @@ ul{
     padding-top: 30px;
     text-align: center;
 }
+.post-container{
+    display:grid;
+    grid-template-columns: 2fr 0.2fr;
+
+}
+i{
+    color:red;
+    margin-top:19px;
+}
 .post{
     background:yellow;
     color:#000;
     border-radius: 5px;
+    margin:4px 0;
+}
+#del{
+    color:red;
 }
 .api-post{
     background:#f107f1;
@@ -107,7 +120,7 @@ p{
     font-size:14px;
     letter-spacing: 1px;
 }
-span{
+.span-body{
     font-weight: bolder;
 }
 /* buttons */

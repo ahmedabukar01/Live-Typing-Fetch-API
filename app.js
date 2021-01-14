@@ -97,7 +97,7 @@ function gettingApiData(){
                 <div class="api-post">
                     <div><span>ID</span>: ${d.id}</div>
                     <h5><span>Title</span>: ${d.title}</h5>
-                    <p><span>Body</span>: ${d.body}</p>
+                    <p><span class="span-body">Body</span>: ${d.body}</p>
                 </div>
             `;
         });
@@ -115,9 +115,12 @@ function gettingPosts(){
 }
 function displayPosts(title,body){
     output.innerHTML += `
-    <div class="post">
-        <h2>${title}</h2>
-        <p>${body}</p>
+    <div class="post-container">
+        <div class="post">
+            <h2>${title}</h2>
+            <p>${body}</p>
+        </div>
+        <i class="fa fa-trash"></i>
     </div>
     `;
     displayDom();
@@ -133,6 +136,12 @@ function removeError(){
     }
     
 }
+/*
+function deletePost(){
+    const del = document.querySelector('li');
+    del.addEventListener('click',deletePost);
+}
+*/
 function displayError(err,color){
     output.innerHTML = `${err.message,"fadlan internet kada hubi"}`;
         output.classList.add('error');
