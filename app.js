@@ -23,7 +23,6 @@ postForm.addEventListener('submit',e=>{
     const title = document.querySelector('.title').value;
     const body = document.querySelector('.body').value;
     displayPosts(title,body);
-    deletePost();
     
 })
 form.addEventListener('submit',e=>e.preventDefault());
@@ -36,6 +35,7 @@ input.addEventListener('keyup', e=>{
 // display live typing 
 function displayLiveBtn(){
     hideDom();
+    displayDom();
     output.textContent ="live typing";
     output.style.background=`${bgColors.liveButton}`;
     input.style.display="inline";
@@ -47,8 +47,9 @@ function liveTyping(text){
 
 // getting text
 function textOutput(){
-    displayDom();
     hideDom();
+    displayDom();
+    
     output.style.backgroundColor = `${bgColors.textButton}`;
 
     getText().then(data=>{
@@ -64,6 +65,7 @@ function textOutput(){
 //  JSON DATA
 function ourjson(){
     hideDom();
+    displayDom();
     output.style.backgroundColor = `${bgColors.jsonData}`;
     removeError();
     
@@ -138,13 +140,6 @@ function removeError(){
     
 }
 
-function deletePost(){
-    const del = document.querySelector('.fa');
-    del.addEventListener('click',()=>{
-        del.parentElement.remove();
-    });
-}
-
 function displayError(err,color){
     output.innerHTML = `${err.message,"fadlan internet kada hubi"}`;
         output.classList.add('error');
@@ -157,6 +152,8 @@ function hideDom(){
     input.style.display="none";
     postForm.style.display="none";
     output.innerHTML ='';
+    output.style.background="none";
+    output.style.display="none";
     postForm.style.display='none';
 }
 
@@ -167,3 +164,8 @@ const bgColors = {
     apiData: '#ff66ff'
 }
  
+output.addEventListener('click',e=>{
+    if(e.target.classList.contains('fa')){
+        e.target.parentElement.remove();
+    }
+})
