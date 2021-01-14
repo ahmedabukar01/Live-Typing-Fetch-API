@@ -24,9 +24,9 @@ input.addEventListener('keyup', e=>{
 
 // display live typing 
 function displayLiveBtn(){
+    hideDom();
     output.textContent ="live typing";
     output.style.background=`${bgColors.liveButton}`;
-    output.style.display="block";
     input.style.display="inline";
 
 }
@@ -37,7 +37,7 @@ function liveTyping(text){
 // getting text
 function textOutput(){
     displayDom();
-
+    hideDom();
     output.style.backgroundColor = `${bgColors.textButton}`;
 
     getText().then(data=>{
@@ -52,8 +52,7 @@ function textOutput(){
 }
 //  JSON DATA
 function ourjson(){
-    output.innerHTML ='';
-    output.style.display="block";
+    hideDom();
     output.style.backgroundColor = `${bgColors.jsonData}`;
     removeError();
     
@@ -75,6 +74,7 @@ function ourjson(){
 }
 // API DATA 
 function gettingApiData(){
+    hideDom();
     displayDom();
     removeError();
     output.style.backgroundColor =`${bgColors.apiData}`;
@@ -118,6 +118,7 @@ function displayError(err,color){
 function hideDom(){
     input.style.display="none";
     postForm.style.display="none";
+    output.innerHTML ='';
 }
 
 const bgColors = {

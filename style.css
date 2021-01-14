@@ -44,7 +44,21 @@ ul{
     padding:4px;
 }
 .post-form{
-    display:none;
+    padding:10px 10px 10px 40px;
+}
+.post-form input{
+    display:block;
+    width:300px;
+    margin:10px 0;
+    border:none;
+    border-radius:4px;
+    outline-color: gold;
+}
+.title{
+    padding:5px 10px;
+}
+.body{
+    padding: 10px 14px;
 }
 .api-post{
     background:#f107f1;
