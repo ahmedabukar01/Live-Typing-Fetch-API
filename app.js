@@ -5,8 +5,10 @@ const jsonData = document.querySelector('.json-data');
 const apiData = document.querySelector('.api-data');
 const apiPost = document.querySelector('.api-post');
 const myPost = document.querySelector('.mypost')
+const submitPost = document.querySelector('#submit');
 const output = document.querySelector('.output');
 const input = document.querySelector('.text');
+const clear = document.querySelector('#clear');
 const form = document.querySelector('form');
 
 // adding eventlisteners
@@ -15,6 +17,14 @@ textButton.addEventListener('click', textOutput);
 jsonData.addEventListener('click', ourjson);
 apiData.addEventListener('click',gettingApiData);
 myPost.addEventListener('click',gettingPosts);
+clear.addEventListener('click',clearForm);
+postForm.addEventListener('submit',e=>{
+    e.preventDefault();
+    const title = document.querySelector('.title').value;
+    const body = document.querySelector('.body').value;
+    displayPosts(title,body);
+    
+})
 form.addEventListener('submit',e=>e.preventDefault());
 input.addEventListener('keyup', e=>{
     let text = input.value;
@@ -101,11 +111,17 @@ function gettingPosts(){
     hideDom();
     removeError();
     postForm.style.display="block";
-    const title = document.querySelector('.title').value;
-    const body = document.querySelector('.body').value;
-    console.log(title,body);
 
-
+}
+function displayPosts(title,body){
+    output.innerHTML += `
+    <div class="post">
+        <h2>${title}</h2>
+        <p>${body}</p>
+    </div>
+    `;
+    displayDom();
+    postForm.reset();
 }
 // managing Dom
 function displayDom(){
@@ -121,6 +137,9 @@ function displayError(err,color){
     output.innerHTML = `${err.message,"fadlan internet kada hubi"}`;
         output.classList.add('error');
         output.style.background="crimson";
+}
+function clearForm(){
+    postForm.reset();
 }
 function hideDom(){
     input.style.display="none";
