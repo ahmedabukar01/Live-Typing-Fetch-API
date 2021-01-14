@@ -8,6 +8,12 @@ const getText = async () =>{
 
     const getJsonData = async()=>{
         const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-        const data = response.json();
+        const data = await response.json();
         return data;
     }
+// getting API Data
+const getApiData = async ()=>{
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await res.json();
+    return data;
+}

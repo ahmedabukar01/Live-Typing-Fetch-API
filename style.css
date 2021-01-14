@@ -49,6 +49,25 @@ li{
 .error{
     background:red;
 }
+.api-post{
+    background:#f107f1;
+    text-align:left;
+    margin:4px;
+    padding:4px;
+    border-radius: 4px;
+}
+h5{
+    font-weight: 400;
+    margin:4px 0;
+}
+p{
+    margin:4px 0;
+    font-size:14px;
+    letter-spacing: 1px;
+}
+span{
+    font-weight: bolder;
+}
 /* buttons */
 .live-button{
     background:#8a2be2;
@@ -62,7 +81,7 @@ li{
 .api-data{
     background:#ff66ff;
 }
-.post{
+.mypost{
     background:gold;
     padding:8px 11px;
 }

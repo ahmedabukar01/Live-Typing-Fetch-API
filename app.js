@@ -3,6 +3,7 @@ const textButton = document.querySelector('.get-text');
 const jsonData = document.querySelector('.json-data');
 const apiData = document.querySelector('.api-data');
 const apiPost = document.querySelector('.api-post');
+const mypost = document.querySelector('.mypost')
 const output = document.querySelector('.output');
 const input = document.querySelector('form input');
 const form = document.querySelector('form');
@@ -11,6 +12,7 @@ const form = document.querySelector('form');
 liveButton.addEventListener('click', displayLiveBtn);
 textButton.addEventListener('click', textOutput);
 jsonData.addEventListener('click', ourjson);
+apiData.addEventListener('click',gettingApiData);
 form.addEventListener('submit',e=>e.preventDefault());
 input.addEventListener('keyup', e=>{
     let text = input.value;
@@ -48,10 +50,11 @@ function textOutput(){
 
     
 }
-// json data
+//  JSON DATA
 function ourjson(){
     output.innerHTML ='';
     output.style.display="block";
+    output.style.backgroundColor = `${bgColors.jsonData}`;
     removeError();
     
     // calling json function
@@ -67,10 +70,31 @@ function ourjson(){
         `
         })
     }).catch(err=>{
-        output.innerHTML = `${err.message}`;
-        output.style.display="block";
-        output.classList.add('error');
+        displayError();
 
+    })
+}
+// API DATA 
+function gettingApiData(){
+    displayDom();
+    removeError();
+    output.style.backgroundColor =`${bgColors.apiData}`;
+    output.innerHTML = ' ';
+
+    getApiData()
+    .then(data=>{
+        data.forEach(d=>{
+            output.innerHTML += `
+                <div class="api-post">
+                    <div><span>ID</span>: ${d.id}</div>
+                    <h5><span>Title</span>: ${d.title}</h5>
+                    <p><span>Body</span>: ${d.body}</p>
+                </div>
+            `;
+        });
+    })
+    .catch(err=>{
+        displayError();
     })
 }
 // display and disappear
@@ -84,11 +108,17 @@ function removeError(){
     }
     
 }
+function displayError(){
+    output.innerHTML = `${err.message}`;
+        output.style.display="block";
+        output.classList.add('error');
+}
 
 // background colors
 const bgColors = {
     liveButton: '#8a2be2',
     textButton: '#1a75ff',
-    jsonData: '#00cc00'
+    jsonData: '#00cc00',
+    apiData: '#ff66ff'
 }
  
