@@ -23,6 +23,7 @@ postForm.addEventListener('submit',e=>{
     const title = document.querySelector('.title').value;
     const body = document.querySelector('.body').value;
     displayPosts(title,body);
+    deletePost();
     
 })
 form.addEventListener('submit',e=>e.preventDefault());
@@ -136,12 +137,14 @@ function removeError(){
     }
     
 }
-/*
+
 function deletePost(){
-    const del = document.querySelector('li');
-    del.addEventListener('click',deletePost);
+    const del = document.querySelector('.fa');
+    del.addEventListener('click',()=>{
+        del.parentElement.remove();
+    });
 }
-*/
+
 function displayError(err,color){
     output.innerHTML = `${err.message,"fadlan internet kada hubi"}`;
         output.classList.add('error');
