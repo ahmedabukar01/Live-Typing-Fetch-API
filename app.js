@@ -56,6 +56,7 @@ function ourjson(){
     removeError();
     
     getJsonData().then(data=>{
+        console.log(data);
         data.forEach(d=>{
             output.innerHTML += `
            <ul>
@@ -66,7 +67,7 @@ function ourjson(){
         `
         })
     }).catch(err=>{
-        displayError();
+        displayError(err);
 
     })
 }
@@ -90,7 +91,7 @@ function gettingApiData(){
         });
     })
     .catch(err=>{
-        displayError();
+        displayError(err);
     })
 }
 // managing Dom
@@ -104,10 +105,10 @@ function removeError(){
     }
     
 }
-function displayError(){
-    output.innerHTML = `${err.message}`;
-        output.style.display="block";
+function displayError(err){
+    output.innerHTML = `${err.message,"fadlan internet kada hubi"}`;
         output.classList.add('error');
+        output.style.background="crimson";
 }
 
 const bgColors = {
