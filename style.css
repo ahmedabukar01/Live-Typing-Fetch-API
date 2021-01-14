@@ -51,7 +51,7 @@ ul{
     transform: translateX(5%);
     display:none;
 }
-.post-form input{
+.post-form input[type="text"]{
     display:block;
     width:300px;
     margin:10px 0;
@@ -59,6 +59,12 @@ ul{
     margin-left: 15px;
     border-radius:4px;
     outline-color: gold;
+}
+.flex{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    background:red;
 }
 .title{
     padding:5px 10px;
@@ -68,6 +74,12 @@ ul{
     border:none;
     border-radius: 5px;
     outline-color: gold;
+}
+.btn{
+    border:none;
+    padding:5px 8px;
+    border-radius: 8px;
+    margin:0 30px;
 }
 .body::placeholder{
     padding-top: 30px;

@@ -98,6 +98,13 @@ function gettingApiData(){
 }
 // posts
 function gettingPosts(){
+    hideDom();
+    removeError();
+    postForm.style.display="block";
+    const title = document.querySelector('.title').value;
+    const body = document.querySelector('.body').value;
+    console.log(title,body);
+
 
 }
 // managing Dom
@@ -119,6 +126,7 @@ function hideDom(){
     input.style.display="none";
     postForm.style.display="none";
     output.innerHTML ='';
+    postForm.style.display='none';
 }
 
 const bgColors = {
