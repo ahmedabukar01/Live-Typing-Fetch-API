@@ -28,17 +28,15 @@ function displayLiveBtn(){
     input.style.display="inline";
 
 }
-// live typing
 function liveTyping(text){
     output.textContent = text;
 }
+
 // getting text
 function textOutput(){
     displayDom();
 
     output.style.backgroundColor = `${bgColors.textButton}`;
-
-    // calling text fun
 
     getText().then(data=>{
         output.innerHTML = data;
@@ -56,8 +54,6 @@ function ourjson(){
     output.style.display="block";
     output.style.backgroundColor = `${bgColors.jsonData}`;
     removeError();
-    
-    // calling json function
     
     getJsonData().then(data=>{
         data.forEach(d=>{
@@ -97,7 +93,7 @@ function gettingApiData(){
         displayError();
     })
 }
-// display and disappear
+// managing Dom
 function displayDom(){
     input.style.display="none";
     output.style.display="block";
@@ -114,7 +110,6 @@ function displayError(){
         output.classList.add('error');
 }
 
-// background colors
 const bgColors = {
     liveButton: '#8a2be2',
     textButton: '#1a75ff',
