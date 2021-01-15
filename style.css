@@ -140,3 +140,11 @@ p{
     background:gold;
     padding:8px 11px;
 }
+
+/* responsive */
+@media (max-width:550px){
+    .post-form{
+        transform:translateX(0);
+        margin-left:-4px;
+    }
+}
