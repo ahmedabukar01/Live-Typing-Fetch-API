@@ -70,7 +70,6 @@ function ourjson(){
     removeError();
     
     getJsonData().then(data=>{
-        console.log(data);
         data.forEach(d=>{
             output.innerHTML += `
            <ul>
